@@ -12,5 +12,12 @@ def listHotel():
     return result
 
 
+def namesImg(dicNames):
+    names = []
+    for name in dicNames:
+        names.append(name['name'].lower().replace(' ', '_'))
+    return names
+
+
 def index(request):
-    return render(request, 'home/index.html', {'hotels': listHotel()})
+    return render(request, 'home/index.html', {'hotels': listHotel(), 'nameImgs': namesImg(listHotel())})
